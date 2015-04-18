@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+# general routing
+Route::get('/', 'HomeController@index');
 
-Route::get('home', 'HomeController@index');
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+# accounts
+Route::get('account/new', 'AccountController@typeSelect');
+Route::get('account/new/{type}', 'AccountController@create');
+Route::post('account/store', 'AccountController@store');
